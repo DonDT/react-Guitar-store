@@ -48,6 +48,8 @@ app.post("/api/product/shop", (req, res) => {
       }
     }
   }
+  // this makes sure those that are not publish = true, are not published.
+  findArgs["publish"] = true;
 
   Product.find(findArgs)
     .populate("brand")
