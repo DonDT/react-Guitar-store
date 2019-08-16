@@ -8,12 +8,12 @@ const cloudinary = require("cloudinary");
 const app = express();
 require("dotenv").config();
 
-mongoose.Promise = global.Promise;
-mongoose.connect(process.env.DATABASE);
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
+
+mongoose.Promise = global.Promise;
+mongoose.connect(process.env.DATABASE);
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
